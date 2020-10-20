@@ -17,7 +17,7 @@ public class levelManager : MonoBehaviour
 
     public void ShowDocument(string DocumentName, Sprite DocumentImage)
     {
-        if (panelDocument != null)
+        if (panelDocument != null && !panelDocument.activeSelf)
         {
             TextMeshProUGUI PanelDocumentName = panelDocument.transform.Find("View/DocumentName").gameObject.GetComponent<TextMeshProUGUI>(); 
             Image PanelDocumentImage =  panelDocument.transform.Find("View/DocumentDisplay").gameObject.GetComponent<Image>();
