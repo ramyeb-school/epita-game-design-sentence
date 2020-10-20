@@ -1,11 +1,17 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class document : MonoBehaviour
 {
     // Used for highligthing.
+    [SerializeField] private string DocumentName;
+
+    [SerializeField] private Sprite DocumentImage;
+
     [SerializeField] private Color highlightColor = Color.yellow;
+
     private Renderer ownRenderer = null;
     private Color[] originalColors;
 
@@ -50,7 +56,7 @@ public class document : MonoBehaviour
         public void OnMouseDown()
     {
         if(levelManager != null) {
-            levelManager.GetComponent<levelManager>().ShowDocument();
+            levelManager.GetComponent<levelManager>().ShowDocument(DocumentName,DocumentImage);
         }
 
     }

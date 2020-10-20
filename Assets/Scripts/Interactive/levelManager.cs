@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using TMPro;
 
 public class levelManager : MonoBehaviour
 {
@@ -13,10 +15,16 @@ public class levelManager : MonoBehaviour
         HideDocument();
     }
 
-    public void ShowDocument()
+    public void ShowDocument(string DocumentName, Sprite DocumentImage)
     {
         if (panelDocument != null)
+        {
+            TextMeshProUGUI PanelDocumentName = panelDocument.transform.Find("View/DocumentName").gameObject.GetComponent<TextMeshProUGUI>(); 
+            Image PanelDocumentImage =  panelDocument.transform.Find("View/DocumentDisplay").gameObject.GetComponent<Image>();
+            PanelDocumentName.text = DocumentName;
+            PanelDocumentImage.sprite = DocumentImage;
             panelDocument.SetActive(true);
+        }
 
     }
 
