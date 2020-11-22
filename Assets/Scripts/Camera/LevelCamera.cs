@@ -14,6 +14,7 @@ public class LevelCamera : MonoBehaviour
     public float speed = 1;
  
     private GameObject mainCamera = null;
+
     void Update()
     {
         if (mainCamera != null)
@@ -28,7 +29,7 @@ public class LevelCamera : MonoBehaviour
         {
             mainCamera = GameObject.FindGameObjectWithTag("MainCamera");
             mainCamera.transform.position = startPosition.transform.position;
-
+            
         }
         MoveToDesk();
     }
