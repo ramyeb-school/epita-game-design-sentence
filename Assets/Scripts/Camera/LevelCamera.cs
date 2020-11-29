@@ -10,6 +10,8 @@ public class LevelCamera : MonoBehaviour
     public Transform currentPosition = null;
     public Transform deskPosition = null;
     public Transform boardPosition = null;
+    public Transform deskPosition2 = null;
+    public Transform boardPosition2 = null;
     public Transform startPosition = null;
     public float speed = 1;
  
@@ -23,14 +25,20 @@ public class LevelCamera : MonoBehaviour
             mainCamera.transform.rotation =  Quaternion.Lerp (mainCamera.transform.rotation, currentPosition.transform.rotation, speed * Time.deltaTime);
         }
     }
+
     void Start()
     {
         if (mainCamera == null)
         {
             mainCamera = GameObject.FindGameObjectWithTag("MainCamera");
             mainCamera.transform.position = startPosition.transform.position;
-            
+            mainCamera.transform.rotation = startPosition.transform.rotation;
+
         }
+    }
+
+    public void startGame(){
+
         MoveToDesk();
     }
 
@@ -42,5 +50,15 @@ public class LevelCamera : MonoBehaviour
     public void MoveToBoard()
     {
         currentPosition = boardPosition;
+    }
+
+        public void MoveToDesk2()
+    {
+        currentPosition = deskPosition2;
+    }
+
+        public void MoveToBoard2()
+    {
+        currentPosition = boardPosition2;
     }
 }

@@ -10,6 +10,7 @@ public class DeskViewButtonChangeView : MonoBehaviour
     public LevelCamera LevelCamera;
     public GameObject Panel;
     public GameObject BoardView;
+    public int numInvestigation;
 
 
 
@@ -20,10 +21,13 @@ public class DeskViewButtonChangeView : MonoBehaviour
     }
 
     public void changeView(){
-
-        if(LevelCamera != null) {
+        if (numInvestigation==1 && LevelCamera != null){
             LevelCamera.MoveToBoard();
+
+        }else if(numInvestigation==2 && LevelCamera != null){
+            LevelCamera.MoveToBoard2();
         }
+
         if(Panel!=null){
             Panel.SetActive(false);
         }

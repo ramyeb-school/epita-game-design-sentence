@@ -11,12 +11,14 @@ public class levelManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        Debug.Log(GameObject.FindGameObjectWithTag("panelDocument"));
         if (panelDocument == null) { panelDocument = GameObject.FindGameObjectWithTag("panelDocument"); }
         HideDocument();
     }
 
     public void ShowDocument(string DocumentName, Sprite DocumentImage)
     {
+
         if (panelDocument != null && !panelDocument.activeSelf)
         {
             TextMeshProUGUI PanelDocumentName = panelDocument.transform.Find("View/DocumentName").gameObject.GetComponent<TextMeshProUGUI>(); 
