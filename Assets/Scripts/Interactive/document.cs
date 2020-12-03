@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 public class document : MonoBehaviour
@@ -36,6 +37,8 @@ public class document : MonoBehaviour
 
     private void OnMouseEnter()
     {
+        if(EventSystem.current.IsPointerOverGameObject())
+        return;
         if (ownRenderer != null)
         {
             Material[] materials = ownRenderer.materials;
@@ -45,6 +48,8 @@ public class document : MonoBehaviour
     }
     private void OnMouseExit()
     {
+        if(EventSystem.current.IsPointerOverGameObject())
+        return;
         if (ownRenderer != null)
         {
             Material[] materials = ownRenderer.materials;
@@ -55,6 +60,9 @@ public class document : MonoBehaviour
 
         public void OnMouseDown()
     {
+        if(EventSystem.current.IsPointerOverGameObject())
+        return;
+
         if(levelManager != null) {
             levelManager.GetComponent<levelManager>().ShowDocument(DocumentName,DocumentImage);
         }

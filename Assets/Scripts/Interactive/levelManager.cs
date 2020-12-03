@@ -11,7 +11,6 @@ public class levelManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Debug.Log(GameObject.FindGameObjectWithTag("panelDocument"));
         if (panelDocument == null) { panelDocument = GameObject.FindGameObjectWithTag("panelDocument"); }
         HideDocument();
     }
