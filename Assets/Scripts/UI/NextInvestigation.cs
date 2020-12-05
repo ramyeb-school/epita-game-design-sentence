@@ -6,7 +6,7 @@ public class NextInvestigation : MonoBehaviour
 {
 
         public GameObject Panel;
-        public GameObject DeskView;
+        public GameObject NextPanel;
 
 
     // Start is called before the first frame update
@@ -20,8 +20,8 @@ public class NextInvestigation : MonoBehaviour
         if(Panel!=null){
             Panel.SetActive(false);
         }
-        if(DeskView!=null){
-            DeskView.SetActive(true);
+        if(NextPanel!=null){
+            NextPanel.SetActive(true);
         }
 
     }

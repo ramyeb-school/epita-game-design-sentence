@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using System;
 
 
@@ -20,8 +21,8 @@ public class InvestigationOneSetterSuspect : MonoBehaviour
     public void setSuspectInInvestigation(){
         if(Investigation1!=null){
             Investigation1.setSuspect(suspectNumber);
-            Debug.Log(Investigation1.getSuspect());
         }
+
     }
     
     // Update is called once per frame

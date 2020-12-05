@@ -4,12 +4,14 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class document : MonoBehaviour
+
+public class documentText : MonoBehaviour
 {
     // Used for highligthing.
     [SerializeField] private string DocumentName;
 
-    [SerializeField] private Sprite DocumentImage;
+    private string DocumentText;
+    public string FileName;
 
     [SerializeField] private Color highlightColor = Color.yellow;
 
@@ -23,6 +25,12 @@ public class document : MonoBehaviour
         if (ownRenderer == null) { ownRenderer = GetComponent<Renderer>(); }
         StoreOriginalColor();
         if (levelManager == null) { levelManager = GameObject.FindGameObjectWithTag("levelManager"); }
+                Debug.Log("Script lancé");
+        
+        string[] tableauDoc = System.IO.File.ReadAllLines(@"Assets/Scripts/Text/"+FileName);
+        for(int i=0; i<tableauDoc.Length; i++){
+            DocumentText += tableauDoc[i] + '\n';
+        }
     }
     private void StoreOriginalColor()
     {
@@ -60,12 +68,14 @@ public class document : MonoBehaviour
 
         public void OnMouseDown()
     {
+        OnMouseExit();
         if(EventSystem.current.IsPointerOverGameObject())
         return;
 
         if(levelManager != null) {
-            levelManager.GetComponent<levelManager>().ShowDocument(DocumentName,DocumentImage);
+            levelManager.GetComponent<levelManager>().ShowDocumentText(DocumentName,DocumentText);
         }
 
     }
 }
+
